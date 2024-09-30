@@ -40,7 +40,7 @@ import { deleteUserFail,
       export const login =(email, password) => async(dispatch)=>{
         try{
             dispatch(loginRequest())
-            const {data} = await axios.post('/api/v1/login',{email,password});
+            const {data} = await axios.post('https://server-side-files-1.onrender.com/api/v1/login',{email,password});
             dispatch(loginSuccess(data));
         }catch(error){
             dispatch(loginFail(error.response.data.message))
@@ -65,7 +65,7 @@ import { deleteUserFail,
                 
             }
            
-            const {data} = await axios.post(`/api/v1/register`,userData, config);
+            const {data} = await axios.post(`https://server-side-files-1.onrender.com/api/v1/register`,userData, config);
             dispatch(registerSuccess(data));
         }catch(error){
             dispatch(registerFail(error.response.data.message))
@@ -77,7 +77,7 @@ import { deleteUserFail,
     export const getUserProfile  = async(dispatch)=>{
         try{
             dispatch(userProfileRequest())
-            const {data} = await axios.get(`/api/v1/userprofile`);
+            const {data} = await axios.get(`https://server-side-files-1.onrender.com/api/v1/userprofile`);
             dispatch(userProfileSuccess(data));
         }catch(error){
             dispatch(userProfileFail(error.response.data.message))
@@ -86,7 +86,7 @@ import { deleteUserFail,
     export const logout = async(dispatch)=>{
         try{
            
-           await axios.get('/api/v1/logout');
+           await axios.get('https://server-side-files-1.onrender.com/api/v1/logout');
             dispatch(logoutSuccess());
         }catch(error){
             dispatch(logoutFail)
@@ -104,7 +104,7 @@ import { deleteUserFail,
                 }
             }
         
-            const {data} = await axios.put('/api/v1/update',userData,config);
+            const {data} = await axios.put('https://server-side-files-1.onrender.com/api/v1/update',userData,config);
             dispatch(updateProfileSuccess(data));
         }catch(error){
             dispatch(updateProfileFail(error.response.data.message))
@@ -122,7 +122,7 @@ import { deleteUserFail,
                 }
             }
     
-             await axios.put('/api/v1/password/change',formData, config);
+             await axios.put('https://server-side-files-1.onrender.com/api/v1/password/change',formData, config);
             dispatch(updatePasswordSuccess());
         }catch(error){
             dispatch(updatePasswordFail(error.response.data.message))
@@ -141,7 +141,7 @@ import { deleteUserFail,
             }
             
         
-             const {data}  = await axios.post('/api/v1//Password/forget',formData,config);
+             const {data}  = await axios.post('https://server-side-files-1.onrender.com/api/v1/Password/forget',formData,config);
             dispatch(forgetPasswordSuccess(data));
         }catch(error){
             dispatch(forgetPasswordFail(error.response.data.message))
@@ -160,7 +160,7 @@ import { deleteUserFail,
             }
             
         
-             const {data}  = await axios.post(  `/api/v1/password/reset/${token}`,formData,config);
+             const {data}  = await axios.post(  `https://server-side-files-1.onrender.com/api/v1/password/reset/${token}`,formData,config);
             dispatch(resetPasswordSuccess(data));
         }catch(error){
             dispatch(resetPasswordFail(error.response.data.message))
@@ -172,7 +172,7 @@ import { deleteUserFail,
     export const getUsers  = async(dispatch)=>{
         try{
             dispatch(usersRequest())
-          const {data} = await axios.get('/api/v1/admin/users');
+          const {data} = await axios.get('https://server-side-files-1.onrender.com/api/v1/admin/users');
             dispatch(usersSuccess(data));
         }catch(error){
             dispatch(usersFail(error.response.data.message))
